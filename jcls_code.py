@@ -1,18 +1,6 @@
 
 # %%
-import pandas as pd
-from scipy.stats import kendalltau, pearsonr, spearmanr, ttest_ind
-import numpy as np
-
-# plotting
-import seaborn as sns
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-
-# for the network
-import networkx as nx
-from sklearn.manifold import TSNE
-
+from utils import *
 
 # %%
 df = pd.read_excel('JCLS_DATA.xlsx')
@@ -102,8 +90,6 @@ df_corr = df_filtered.corr(method= 'spearman')[pvals<psig].fillna(0)
 plt.figure(figsize=(16,15))
 sns.clustermap(df_corr, annot=True,cbar_pos=None, method='ward')
 plt.show()
-
-# %%%
 
 
 # %%
@@ -350,11 +336,10 @@ for cp in continuous_proxies_minus:
 
     plt.xticks(rotation=30, ha='center')
 
-
     # show plot 
     plt.show()
 
 
-
-
+# %%
+print('All done!')
 # %%
